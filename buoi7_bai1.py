@@ -3,6 +3,19 @@ import numpy as np
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image, ImageTk
+from tkinter import messagebox
+from PIL import Image
+
+# Hàm lưu hình ảnh đã được xử lý
+def save_image(image):
+    file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png")])
+    if file_path:
+        try:
+            image.save(file_path)
+            messagebox.showinfo("Success", "Image saved successfully!")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error occurred: {e}")
+
 
 
 # Hàm xử lý sự kiện khi nút "Open Image" được nhấn
